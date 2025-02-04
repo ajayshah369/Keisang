@@ -53,7 +53,12 @@ export class VehiclesAdminController {
     await new Promise((resolve, reject) => {
       stream
         .pipe(csv())
-        .on('data', (data) => results.push(data))
+        .on('data', (data) =>
+          results.push({
+            ...data,
+            custom_label: data.custom_label ?? data.custom_label_0,
+          }),
+        )
         .on('end', resolve)
         .on('error', reject);
     });
