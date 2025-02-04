@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 # Install build dependencies
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip postgresql postgresql-contrib
+    apt-get install -y python3 python3-pip
 
 COPY package*.json ./
 RUN npm install
