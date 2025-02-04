@@ -26,6 +26,12 @@ export const databaseProviders = [
           timestamps: true,
           paranoid: true,
         },
+        dialectOptions: {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        }
       });
 
       // Define models
